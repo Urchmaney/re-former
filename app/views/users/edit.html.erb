@@ -1,2 +1,47 @@
 <h1>Users#edit</h1>
 <p>Find me in app/views/users/edit.html.erb</p>
+
+
+<% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<%# <form action="/users" method="post" accept-charset="UTF-8">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>
+    <%# <label>Name</label>
+    <input type="text" name="user[username]"><br>
+    <label>Username</label>
+    <input type ="email" name="user[email]"><br>
+    <label>Password</label>
+    <input type="password" name="user[password]"><br>
+    <input type="Submit" value="Submit">
+
+</form> %>
+
+<%# <%= form_tag("/users", method: "post") do %>
+    <%# <%= label_tag(:username, "Username")%>
+    <%# <%= text_field_tag(:username)%>
+     <%# <%= label_tag(:email, "Email")%>
+    <%# <%= email_field_tag(:email)%>
+      <%# <%= label_tag(:password, "Password")%> 
+    <%# <%= password_field_tag(:password)%>
+    <%# <%= submit_tag("Save")%>
+<%# <%end%> 
+
+<%= form_for @user do |f|%>
+    <%=f.label :username, "Username"%>
+    <%= f.text_field :username %><br>
+    <%= f.label :email , "Email"%>
+    <%= f.email_field :email %><br>
+    <%= f.label :password , "Password"%>
+    <%= f.password_field :password %><br>
+    <%= f.submit "Save"%>
+<%end%>
