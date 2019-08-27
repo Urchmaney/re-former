@@ -1,5 +1,8 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
-    validates :username, presence: true
-	validates :email, presence: true
-	validates :password, presence: true
+  validates :username, presence: true
+  validates :email, presence: true
+  validates :email, presence: true, format: /\w+@\w+\.{1}[a-zA-Z]{2,}/
+  validates :password, presence: true
 end
