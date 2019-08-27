@@ -3,6 +3,6 @@
 class User < ApplicationRecord
   validates :username, presence: true
   validates :email, presence: true
-  validates :email, :format => {:with => /@/}
+  validates :email, presence: true, format: /\w+@\w+\.{1}[a-zA-Z]{2,}/
   validates :password, presence: true
 end
